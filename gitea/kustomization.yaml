@@ -1,4 +1,7 @@
 namespace: gitea
 
 resources:
+  - ingress.yaml
   - namespace.yaml
+  - service.yaml
+  - statefulset.yaml

@@ -1,16 +1,16 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: drone
+  name: gitea
 spec:
   rules:
-    - host: drone.drone.svc.cluster.local
+    - host: gitea.gitea.svc.cluster.local
       http:
         paths:
           - pathType: Prefix
             path: /
             backend:
               service:
-                name: drone
+                name: gitea
                 port:
                   name: http

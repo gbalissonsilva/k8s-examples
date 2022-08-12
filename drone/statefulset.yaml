@@ -20,18 +20,19 @@ spec:
             - name: http
               containerPort: 80
           env:
-            - name: DRONE_GOGS_SERVER
-              valueFrom:
-                secretKeyRef:
-                  name: drone
-                  key: DRONE_GOGS_SERVER
+            - name: DRONE_GITEA_CLIENT_ID
+              value: 38e36f25-b035-4fbf-9768-0a89c926a12e
+            - name: DRONE_GITEA_CLIENT_SECRET
+              value: gto_cao67zzmwsil2tpggd6sueqieb2des7n56fneylhc2jigohl2vva
+            - name: DRONE_GITEA_SERVER
+              value: http://gitea.gitea.svc.cluster.local
             - name: DRONE_RPC_SECRET
               valueFrom:
                 secretKeyRef:
                   name: drone
                   key: DRONE_RPC_SECRET
             - name: DRONE_SERVER_HOST
-              value: drone.drone
+              value: drone.drone.svc.cluster.local
             - name: DRONE_SERVER_PROTO
               value: http
             - name: DRONE_LOGS_DEBUG
