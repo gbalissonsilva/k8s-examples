@@ -1,2 +1,2 @@
 bases:
-  - src/app-example-orders/kustomize
+  - src/orders/kustomize
