@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+
+  app-example-orders:
+    image: "node:16.17-alpine"
+    user: "${UID:-1000}:${GID:-1000}"
+    networks:
+      - "app-example-orders"
+    volumes:
+      - "./:/src"
+    working_dir: "/src"
+    entrypoint: ["npm"]
+    command: ["run", "dev"]
+
+networks:
+  app-example-orders:
+    name: "app-example-orders"
