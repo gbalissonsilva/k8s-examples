@@ -17,6 +17,9 @@ kubectl apply \
 ```
 kubectl apply \
     --kustomize ../mongodb
+
+kubectl apply \
+    --kustomize ./app-example
 ```
 
 ## References

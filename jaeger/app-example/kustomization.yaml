@@ -1,0 +1,2 @@
+bases:
+  - src/app-example-orders/kustomize

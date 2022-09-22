@@ -1,0 +1,6 @@
+namespace: app-example-orders
+
+resources:
+  - deployment.yaml
+  - namespace.yaml
+  - service.yaml
