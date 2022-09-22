@@ -22,3 +22,13 @@ fastify.listen({ host: '0.0.0.0', port: process.env.PORT })
     fastify.log.error(error);
     process.exit(1);
   });
+
+// -------------------------------------------------------------------------------------------------
+
+process.on('SIGINT', handleSignal);
+process.on('SIGTERM', handleSignal);
+
+function handleSignal(signal) {
+  fastify.close();
+  process.exit(0);
+}
