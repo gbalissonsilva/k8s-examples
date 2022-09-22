@@ -9,6 +9,9 @@ kubectl apply \
 
 kubectl apply \
     --kustomize ./jaeger-operator
+
+kubectl apply \
+    --kustomize ./
 ```
 
 ## References
