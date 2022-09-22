@@ -7,11 +7,15 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     networks:
       - "app-example-orders"
+    ports:
+      - "3000:3000"
     volumes:
       - "./:/src"
     working_dir: "/src"
     entrypoint: ["npm"]
-    command: ["run", "dev"]
+    command: ["start"]
+    environment:
+      PORT: "3000"
 
 networks:
   app-example-orders:
