@@ -7,6 +7,7 @@ services:
     user: "${UID:-1000}:${GID:-1000}"
     networks:
       - "app-example-orders"
+      - "app-example-jaeger"
     ports:
       - "3000:3000"
     volumes:
@@ -16,7 +17,12 @@ services:
     command: ["start"]
     environment:
       PORT: "3000"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4318"
+      OTEL_SERVICE_NAME: "app-example-orders"
 
 networks:
   app-example-orders:
     name: "app-example-orders"
+  app-example-jaeger:
+    name: "app-example-jaeger"
+    external: true
