@@ -1,5 +1,8 @@
 {
   "name": "app-example-orders",
   "version": "1.0.0-alpha",
-  "description": "Orders Application"
+  "description": "Orders Application",
+  "dependencies": {
+    "fastify": "^4.6.0"
+  }
 }
