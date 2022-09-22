@@ -14,6 +14,11 @@ kubectl apply \
     --kustomize ./
 ```
 
+```
+kubectl apply \
+    --kustomize ../mongodb
+```
+
 ## References
 
 * [Jaeger Operator](https://www.jaegertracing.io/docs/1.37/operator/)
