@@ -22,6 +22,7 @@ services:
       OTEL_SERVICE_NAME: "app-example-items"
       MONGODB_URL: "mongodb://root:root@mongodb"
       MONGODB_DATABASE: "app-example-items"
+      APP_EXAMPLE_ORDERS_URL: "http://app-example-orders:3000"
 
   mongodb:
     image: "mongo:5.0"

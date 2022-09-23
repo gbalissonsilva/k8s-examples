@@ -12,4 +12,6 @@ fastify.get('/', function (request, reply) {
   reply.send({ app: 'app-example-items' });
 });
 
+fastify.post('/v1/orders/:orderId/items', require('./routes/create.js'));
+
 module.exports = fastify;
