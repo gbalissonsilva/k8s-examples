@@ -3,3 +3,4 @@ namespace: jaeger
 resources:
   - jaeger.yaml
   - namespace.yaml
+  - servicemonitor.yaml
