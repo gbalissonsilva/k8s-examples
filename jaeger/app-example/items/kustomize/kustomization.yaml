@@ -1,0 +1,7 @@
+namespace: app-example-items
+
+resources:
+  - deployment.yaml
+  - namespace.yaml
+  - secret.yaml
+  - service.yaml

@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-example-items
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: app-example-items
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: app-example-items
+    spec:
+      containers:
+        - name: app-example-items
+          image: k3d-example-registry:5000/app-example-items
+          env:
+            - name: PORT
+              value: "3000"
+            - name: OTEL_EXPORTER_OTLP_ENDPOINT
+              value: http://jaeger-collector.jaeger.svc:4318
+            - name: OTEL_SERVICE_NAME
+              value: app-example-items
+            - name: MONGODB_DATABASE
+              value: app-example-items
+            - name: APP_EXAMPLE_ORDERS_URL
+              value: http://app-example-orders.app-example-orders.svc
+          envFrom:
+            - secretRef:
+                name: app-example-items-env
+          ports:
+            - name: http
+              containerPort: 3000

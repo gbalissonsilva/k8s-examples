@@ -1,2 +1,3 @@
 bases:
   - orders/kustomize
+  - items/kustomize
