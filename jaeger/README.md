@@ -21,7 +21,18 @@ docker build ./app-example/orders \
 docker tag app-example-orders k3d-example-registry:5000/app-example-orders
 
 docker push k3d-example-registry:5000/app-example-orders
+```
 
+```
+docker build ./app-example/items \
+    --tag app-example-items
+
+docker tag app-example-items k3d-example-registry:5000/app-example-items
+
+docker push k3d-example-registry:5000/app-example-items
+```
+
+```
 kubectl apply \
     --kustomize ../mongodb
 

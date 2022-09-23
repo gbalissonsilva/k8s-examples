@@ -1,0 +1,6 @@
+.dockerignore
+.gitignore
+docker-compose.yaml
+Dockerfile
+kustomize
+node_modules
