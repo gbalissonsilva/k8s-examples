@@ -19,6 +19,17 @@ services:
       PORT: "3000"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4318"
       OTEL_SERVICE_NAME: "app-example-orders"
+      MONGODB_URL: "mongodb://mongodb/app-example-orders"
+
+  mongodb:
+    image: "mongo:5.0"
+    volumes:
+      - "mongodb:/data/db"
+    networks:
+      - "app-example-orders"
+
+volumes:
+  mongodb:
 
 networks:
   app-example-orders:
