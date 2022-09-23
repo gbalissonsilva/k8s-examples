@@ -19,7 +19,8 @@ services:
       PORT: "3000"
       OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4318"
       OTEL_SERVICE_NAME: "app-example-orders"
-      MONGODB_URL: "mongodb://mongodb/app-example-orders"
+      MONGODB_URL: "mongodb://root:root@mongodb"
+      MONGODB_DATABASE: "app-example-orders"
 
   mongodb:
     image: "mongo:5.0"
@@ -27,6 +28,9 @@ services:
       - "mongodb:/data/db"
     networks:
       - "app-example-orders"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "root"
 
 volumes:
   mongodb:

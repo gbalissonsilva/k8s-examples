@@ -22,6 +22,8 @@ spec:
               value: http://jaeger-collector.jaeger.svc:4318
             - name: OTEL_SERVICE_NAME
               value: app-example-orders
+            - name: MONGODB_URL
+              value: mongodb://root:root@mongodb.mongodb.svc/app-example-orders
           ports:
             - name: http
               containerPort: 3000

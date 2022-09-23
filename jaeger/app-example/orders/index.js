@@ -5,6 +5,7 @@ const fastify = require('fastify')({
 fastify.register(require('@fastify/mongodb'), {
   forceClose: true,
   url: process.env.MONGODB_URL,
+  database: process.env.MONGODB_DATABASE,
 });
 
 fastify.get('/', function (request, reply) {
