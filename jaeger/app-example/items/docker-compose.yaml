@@ -1,0 +1,47 @@
+version: "3.8"
+
+services:
+
+  app-example-items:
+    image: "node:16.17-alpine"
+    user: "${UID:-1000}:${GID:-1000}"
+    networks:
+      - "app-example-items"
+      - "app-example-orders"
+      - "app-example-jaeger"
+    ports:
+      - "3001:3001"
+    volumes:
+      - "./:/src"
+    working_dir: "/src"
+    entrypoint: ["npm"]
+    command: ["start"]
+    environment:
+      PORT: "3001"
+      OTEL_EXPORTER_OTLP_ENDPOINT: "http://jaeger:4318"
+      OTEL_SERVICE_NAME: "app-example-items"
+      MONGODB_URL: "mongodb://root:root@mongodb"
+      MONGODB_DATABASE: "app-example-items"
+
+  mongodb:
+    image: "mongo:5.0"
+    volumes:
+      - "mongodb:/data/db"
+    networks:
+      - "app-example-items"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "root"
+
+volumes:
+  mongodb:
+
+networks:
+  app-example-items:
+    name: "app-example-items"
+  app-example-orders:
+    name: "app-example-orders"
+    external: true
+  app-example-jaeger:
+    name: "app-example-jaeger"
+    external: true
