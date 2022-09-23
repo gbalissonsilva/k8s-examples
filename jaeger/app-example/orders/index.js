@@ -12,5 +12,6 @@ fastify.get('/', function (request, reply) {
 });
 
 fastify.post('/v1/orders', require('./routes/create.js'));
+fastify.get('/v1/orders/:orderId', require('./routes/find.js'));
 
 module.exports = fastify;

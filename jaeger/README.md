@@ -18,7 +18,7 @@ kubectl apply \
 ```
 
 ```
-docker build ./app-example/src/orders \
+docker build ./app-example/orders \
     --tag app-example-orders
 
 docker tag app-example-orders k3d-example-registry:5000/app-example-orders
