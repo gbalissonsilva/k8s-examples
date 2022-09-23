@@ -3,4 +3,5 @@ namespace: app-example-orders
 resources:
   - deployment.yaml
   - namespace.yaml
+  - secret.yaml
   - service.yaml

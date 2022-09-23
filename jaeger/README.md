@@ -11,9 +11,6 @@ kubectl apply \
     --kustomize ./jaeger-operator
 
 kubectl apply \
-    --kustomize ../mongodb
-
-kubectl apply \
     --kustomize ./
 ```
 
@@ -24,6 +21,9 @@ docker build ./app-example/orders \
 docker tag app-example-orders k3d-example-registry:5000/app-example-orders
 
 docker push k3d-example-registry:5000/app-example-orders
+
+kubectl apply \
+    --kustomize ../mongodb
 
 kubectl apply \
     --kustomize ./app-example

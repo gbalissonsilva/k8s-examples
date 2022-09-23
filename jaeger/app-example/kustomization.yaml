@@ -1,2 +1,2 @@
 bases:
-  - src/orders/kustomize
+  - orders/kustomize
