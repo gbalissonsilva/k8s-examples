@@ -11,6 +11,11 @@ kubectl apply \
     --kustomize ./opentelemetry-operator
 ```
 
+```
+kubectl apply \
+    --kustomize ./app-example
+```
+
 ## References
 
 * [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/)
