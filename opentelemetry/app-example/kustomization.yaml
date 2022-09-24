@@ -2,3 +2,4 @@ namespace: app-example
 
 resources:
   - namespace.yaml
+  - opentelemetrycollector.yaml
