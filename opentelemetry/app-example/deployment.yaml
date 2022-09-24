@@ -14,9 +14,29 @@ spec:
       labels:
         app.kubernetes.io/name: app-example
     spec:
+      initContainers:
+        - name: opentelemetry-install
+          image: nginx:1.21
+          command: ["opentelemetry-install.sh"]
+          volumeMounts:
+            - name: opentelemetry-install
+              mountPath: /usr/local/bin/opentelemetry-install.sh
+              subPath: opentelemetry-install.sh
+            - name: opentelemetry-webserver-sdk
+              mountPath: /opt/opentelemetry-webserver-sdk
       containers:
         - name: nginx
           image: nginx:1.21
           ports:
             - name: http
               containerPort: 80
+          volumeMounts:
+            - name: opentelemetry-webserver-sdk
+              mountPath: /opt/opentelemetry-webserver-sdk
+      volumes:
+        - name: opentelemetry-install
+          configMap:
+            name: app-example-opentelemetry-install
+            defaultMode: 0777
+        - name: opentelemetry-webserver-sdk
+          emptyDir: {}
