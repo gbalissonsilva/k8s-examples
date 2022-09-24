@@ -1,0 +1,16 @@
+NginxModuleEnabled ON;
+NginxModuleOtelSpanExporter otlp;
+NginxModuleOtelExporterEndpoint app-example-collector:4317;
+NginxModuleServiceName DemoService;
+NginxModuleServiceNamespace DemoServiceNamespace;
+NginxModuleServiceInstanceId DemoInstanceId;
+NginxModuleResolveBackends ON;
+NginxModuleTraceAsError ON;
+
+server {
+  listen 80;
+
+  location / {
+    root /usr/share/nginx/html;
+  }
+}

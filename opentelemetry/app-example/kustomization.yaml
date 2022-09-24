@@ -7,6 +7,7 @@ resources:
   - deployment.yaml
   - namespace.yaml
   - opentelemetrycollector.yaml
+  - service.yaml
 
 configMapGenerator:
   - name: app-example-opentelemetry-install
@@ -15,3 +16,6 @@ configMapGenerator:
   - name: app-example-nginx
     files:
       - assets/nginx.conf
+  - name: app-example-nginx-templates
+    files:
+      - assets/default.conf.template

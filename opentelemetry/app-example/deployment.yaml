@@ -36,6 +36,8 @@ spec:
             - name: nginx
               mountPath: /etc/nginx/nginx.conf
               subPath: nginx.conf
+            - name: nginx-templates
+              mountPath: /etc/nginx/templates
           env:
             - name: LD_LIBRARY_PATH
               value: /opt/opentelemetry-webserver-sdk/sdk_lib/lib
@@ -49,3 +51,6 @@ spec:
         - name: nginx
           configMap:
             name: app-example-nginx
+        - name: nginx-templates
+          configMap:
+            name: app-example-nginx-templates
