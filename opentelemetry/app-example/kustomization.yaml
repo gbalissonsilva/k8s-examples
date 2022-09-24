@@ -1,6 +1,14 @@
+generatorOptions:
+  disableNameSuffixHash: true
+
 namespace: app-example
 
 resources:
   - deployment.yaml
   - namespace.yaml
   - opentelemetrycollector.yaml
+
+configMapGenerator:
+  - name: app-example-opentelemetry-install
+    files:
+      - assets/opentelemetry-install.sh
