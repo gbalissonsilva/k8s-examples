@@ -12,3 +12,6 @@ configMapGenerator:
   - name: app-example-opentelemetry-install
     files:
       - assets/opentelemetry-install.sh
+  - name: app-example-nginx
+    files:
+      - assets/nginx.conf
