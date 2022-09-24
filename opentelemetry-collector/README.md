@@ -1,5 +1,10 @@
 # opentelemetry-collector
 
+```
+k3d cluster create \
+    --config ../k3d-example.yaml
+```
+
 ## References
 
 * [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/getting-started/)
