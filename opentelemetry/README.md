@@ -1,4 +1,4 @@
-# opentelemetry-collector
+# opentelemetry
 
 ```
 k3d cluster create \
